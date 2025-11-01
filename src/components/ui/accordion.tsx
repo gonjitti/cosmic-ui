@@ -38,7 +38,7 @@ function AccordionTrigger({
   ...rest
 }: React.ComponentProps<typeof Accordion.ItemTrigger>) {
   return (
-    <Accordion.ItemTrigger className={twMerge(["cosmic-accordion-trigger", className])} {...rest}>
+    <Accordion.ItemTrigger className={twMerge(["group cosmic-accordion-trigger", className])} {...rest}>
       <FilePenLine className="size-4.5 me-2.5" /> {children}
       <ChevronDown className="ms-auto size-4 group-data-[state=open]:rotate-180" />
     </Accordion.ItemTrigger>

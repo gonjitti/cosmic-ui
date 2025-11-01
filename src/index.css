@@ -228,7 +228,7 @@ body {
 
   /* Button Base */
   .cosmic-button {
-    @apply group font-bold mb-2 relative px-8 py-2 cursor-pointer transition-all outline-none;
+    @apply font-bold mb-2 relative px-8 py-2 cursor-pointer transition-all outline-none;
     @apply [&>span]:relative [&>span]:flex [&>span]:items-center [&>span]:justify-center;
   }
 
@@ -291,7 +291,8 @@ body {
   }
 
   .cosmic-alert-title {
-    @apply flex items-center cosmic-text-glow-primary font-bold w-full relative;
+    @apply flex items-center font-bold w-full relative;
+    @apply text-shadow-lg text-shadow-primary;
   }
 
   .cosmic-alert-description {
@@ -313,7 +314,7 @@ body {
   }
 
   .cosmic-checkbox-control {
-    @apply group relative size-5 flex items-center justify-center;
+    @apply relative size-5 flex items-center justify-center;
     @apply data-[state=checked]:drop-shadow-[0_0px_20px_var(--color-primary)];
     --color-frame-1-stroke: --alpha(var(--color-primary) / 80%);
     --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
@@ -331,7 +332,7 @@ body {
   }
 
   .cosmic-switch-control {
-    @apply group relative w-14 h-6 flex items-center p-1 cursor-pointer;
+    @apply relative w-14 h-6 flex items-center p-1 cursor-pointer;
     --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
     --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
     @apply data-[state=checked]:[--color-frame-1-stroke:var(--color-primary)];
@@ -362,7 +363,7 @@ body {
 
   .cosmic-tabs-trigger {
     @apply text-nowrap opacity-80 [&>div>svg]:hidden -mr-4;
-    @apply data-[selected]:cosmic-text-glow-primary;
+    @apply data-[selected]:text-shadow-lg data-[selected]:text-shadow-primary;
     @apply data-[selected]:opacity-100 data-[selected]:drop-shadow-[0_0px_20px_var(--color-primary)];
     @apply [&:first-of-type>div>svg:nth-child(1)]:block;
     @apply [&:not(:first-of-type):not(:last-of-type)>div>svg:nth-child(2)]:block;
@@ -407,7 +408,8 @@ body {
   }
 
   .cosmic-dialog-title {
-    @apply font-medium cosmic-text-glow-primary font-bold text-lg relative;
+    @apply font-medium font-bold text-lg relative;
+    @apply text-shadow-lg text-shadow-primary;
   }
 
   .cosmic-dialog-description {
@@ -436,7 +438,8 @@ body {
   }
 
   .cosmic-accordion-trigger {
-    @apply flex items-center data-[state=open]:cosmic-text-glow-primary font-bold cursor-pointer w-full group py-2 -my-2;
+    @apply flex items-center font-bold cursor-pointer w-full py-2 -my-2;
+    @apply data-[state=open]:text-shadow-lg data-[state=open]:text-shadow-primary;
     @apply data-[state=open]:pt-3.5 transition-[padding] duration-100;
   }
 

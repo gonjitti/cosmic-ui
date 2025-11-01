@@ -24,7 +24,7 @@ function SwitchControl({
   ...rest
 }: React.ComponentProps<typeof Switch.Control>) {
   return (
-    <Switch.Control className={twMerge(["cosmic-switch-control", className])} {...rest}>
+    <Switch.Control className={twMerge(["group cosmic-switch-control", className])} {...rest}>
       <div className="cosmic-switch-frame">
         <Frame
           paths={JSON.parse(
