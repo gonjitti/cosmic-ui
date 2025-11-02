@@ -32,7 +32,7 @@ function CheckboxControl({
   ...rest
 }: React.ComponentProps<typeof Checkbox.Control>) {
   return (
-    <Checkbox.Control className={twMerge(["cosmic-checkbox-control", className])} {...rest}>
+    <Checkbox.Control className={twMerge(["group cosmic-checkbox-control", className])} {...rest}>
       <Frame
         paths={JSON.parse(
           '[{"show":true,"style":{"strokeWidth":"1","stroke":"var(--color-frame-1-stroke)","fill":"var(--color-frame-1-fill)"},"path":[["M","50% - 28.125%","0"],["L","50% + 28.125%","0"],["L","100% + 0","50% - 28.125%"],["L","100% + 0","50% + 28.125%"],["L","50% + 28.125%","100% - 0"],["L","50% - 28.125%","100% + 0"],["L","0","50% + 28.125%"],["L","0","50% - 28.125%"],["L","50% - 28.125%","0"]]}]'

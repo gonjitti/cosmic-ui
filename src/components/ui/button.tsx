@@ -52,7 +52,7 @@ function Button({
   return (
     <button
       {...props}
-      className={twMerge(buttonVariants({ variant, shape, className }))}
+      className={twMerge("group", buttonVariants({ variant, shape, className }))}
     >
       <div className="absolute inset-0 -mb-2">
         {!customPaths && (shape == "default" || shape == "flat") && (

@@ -228,7 +228,7 @@ body {
 
   /* Button Base */
   .cosmic-button {
-    @apply group font-bold mb-2 relative px-8 py-2 cursor-pointer transition-all outline-none;
+    @apply font-bold mb-2 relative px-8 py-2 cursor-pointer transition-all outline-none;
     @apply [&>span]:relative [&>span]:flex [&>span]:items-center [&>span]:justify-center;
   }
 
@@ -291,7 +291,8 @@ body {
   }
 
   .cosmic-alert-title {
-    @apply flex items-center cosmic-text-glow-primary font-bold w-full relative;
+    @apply flex items-center font-bold w-full relative;
+    @apply text-shadow-lg text-shadow-primary;
   }
 
   .cosmic-alert-description {
@@ -313,7 +314,7 @@ body {
   }
 
   .cosmic-checkbox-control {
-    @apply group relative size-5 flex items-center justify-center;
+    @apply relative size-5 flex items-center justify-center;
     @apply data-[state=checked]:drop-shadow-[0_0px_20px_var(--color-primary)];
     --color-frame-1-stroke: --alpha(var(--color-primary) / 80%);
     --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
@@ -331,7 +332,7 @@ body {
   }
 
   .cosmic-switch-control {
-    @apply group relative w-14 h-6 flex items-center p-1 cursor-pointer;
+    @apply relative w-14 h-6 flex items-center p-1 cursor-pointer;
     --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
     --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
     @apply data-[state=checked]:[--color-frame-1-stroke:var(--color-primary)];
@@ -362,7 +363,7 @@ body {
 
   .cosmic-tabs-trigger {
     @apply text-nowrap opacity-80 [&>div>svg]:hidden -mr-4;
-    @apply data-[selected]:cosmic-text-glow-primary;
+    @apply data-[selected]:text-shadow-lg data-[selected]:text-shadow-primary;
     @apply data-[selected]:opacity-100 data-[selected]:drop-shadow-[0_0px_20px_var(--color-primary)];
     @apply [&:first-of-type>div>svg:nth-child(1)]:block;
     @apply [&:not(:first-of-type):not(:last-of-type)>div>svg:nth-child(2)]:block;
@@ -407,7 +408,8 @@ body {
   }
 
   .cosmic-dialog-title {
-    @apply font-medium cosmic-text-glow-primary font-bold text-lg relative;
+    @apply font-medium font-bold text-lg relative;
+    @apply text-shadow-lg text-shadow-primary;
   }
 
   .cosmic-dialog-description {
@@ -436,12 +438,173 @@ body {
   }
 
   .cosmic-accordion-trigger {
-    @apply flex items-center data-[state=open]:cosmic-text-glow-primary font-bold cursor-pointer w-full group py-2 -my-2;
+    @apply flex items-center font-bold cursor-pointer w-full py-2 -my-2;
+    @apply data-[state=open]:text-shadow-lg data-[state=open]:text-shadow-primary;
     @apply data-[state=open]:pt-3.5 transition-[padding] duration-100;
   }
 
   .cosmic-accordion-content {
     @apply py-2 mt-1 opacity-80;
     @apply data-[state=open]:animate-in data-[state=open]:zoom-in-95 data-[state=open]:fade-in-0;
+  }
+
+  /* Textarea */
+  .cosmic-textarea-wrapper {
+    @apply relative;
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+    --color-frame-2-stroke: transparent;
+    --color-frame-2-fill: transparent;
+  }
+
+  .cosmic-textarea-frame {
+    @apply absolute inset-0 -mb-2 [&>svg]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-textarea {
+    @apply outline-none px-8 py-2 relative field-sizing-content min-h-16 w-full placeholder:text-foreground/70;
+  }
+
+  /* Radio Group */
+  .cosmic-radio-group {
+    @apply flex flex-col gap-3;
+  }
+
+  .cosmic-radio-group-label {
+    @apply font-bold;
+  }
+
+  .cosmic-radio-item {
+    @apply flex gap-3.5 items-center cursor-pointer;
+  }
+
+  .cosmic-radio-item-text {
+    @apply order-2;
+  }
+
+  .cosmic-radio-item-control {
+    @apply relative size-5 flex items-center justify-center;
+    @apply data-[state=checked]:drop-shadow-[0_0px_20px_var(--color-primary)];
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+  }
+
+  .cosmic-radio-item-indicator {
+    @apply relative size-3 transition-all duration-100;
+    @apply data-[state=checked]:opacity-100 opacity-0;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 30%);
+  }
+
+  /* Menu */
+  .cosmic-menu-trigger {
+    @apply data-[state=open]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-menu-content {
+    @apply relative min-w-(--reference-width) px-6 py-7 outline-none mt-1.5;
+    @apply [&[data-state='open']]:animate-in [&[data-state='open']]:zoom-in-80 [&[data-state='open']]:fade-in-0 [&[data-state='open']]:duration-200;
+    @apply [&[data-state='open'][data-placement='bottom-start']]:slide-in-from-top-2;
+    @apply [&[data-state='open'][data-placement='left-start']]:slide-in-from-right-2;
+    @apply [&[data-state='open'][data-placement='right-start']]:slide-in-from-left-2;
+    @apply [&[data-state='open'][data-placement='top-start']]:slide-in-from-bottom-2;
+    @apply [&[data-state='closed']]:animate-out [&[data-state='closed']]:zoom-out-80 [&[data-state='closed']]:fade-out-0 [&[data-state='closed']]:duration-200;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-accent);
+    --color-frame-2-fill: --alpha(var(--color-accent) / 40%);
+    --color-frame-3-stroke: var(--color-accent);
+    --color-frame-3-fill: --alpha(var(--color-accent) / 40%);
+    --color-frame-4-stroke: var(--color-accent);
+    --color-frame-4-fill: --alpha(var(--color-accent) / 40%);
+  }
+
+  .cosmic-menu-content-frame {
+    @apply absolute inset-0 group-data-[placement=top-start]:scale-y-[-1];
+  }
+
+  .cosmic-menu-content-inner {
+    @apply relative flex flex-col gap-2.5;
+  }
+
+  .cosmic-menu-item {
+    @apply cursor-pointer flex items-center -mx-3 -my-0.5 px-3 py-0.5;
+    @apply border border-transparent;
+    @apply hover:border-primary/30 hover:bg-primary/10;
+    @apply data-[highlighted]:border-primary/30 data-[highlighted]:bg-primary/10;
+  }
+
+  /* Combobox */
+  .cosmic-combobox-control {
+    @apply relative;
+  }
+
+  .cosmic-combobox-trigger {
+    @apply w-full min-w-55 px-0 [&>span]:justify-start px-8;
+  }
+
+  .cosmic-combobox-input-wrapper {
+    @apply relative;
+  }
+
+  .cosmic-combobox-input {
+    @apply w-full outline-none px-8 py-2 relative placeholder:text-foreground/70;
+  }
+
+  .cosmic-combobox-content {
+    @apply relative min-w-(--reference-width) px-4 py-3 outline-none mt-1.5 max-h-80 overflow-y-auto;
+    @apply [&[data-state='open']]:animate-in [&[data-state='open']]:zoom-in-80 [&[data-state='open']]:fade-in-0 [&[data-state='open']]:duration-200;
+    @apply [&[data-state='open'][data-placement='bottom-start']]:slide-in-from-top-2;
+    @apply [&[data-state='closed']]:animate-out [&[data-state='closed']]:zoom-out-80 [&[data-state='closed']]:fade-out-0 [&[data-state='closed']]:duration-200;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+  }
+
+  .cosmic-combobox-content-frame {
+    @apply absolute inset-0;
+  }
+
+  .cosmic-combobox-content-inner {
+    @apply relative flex flex-col gap-2;
+  }
+
+  .cosmic-combobox-item {
+    @apply cursor-pointer flex items-center justify-between px-4 py-1.5;
+    @apply border border-transparent;
+    @apply hover:border-primary/30 hover:bg-primary/10;
+    @apply data-[highlighted]:border-primary/30 data-[highlighted]:bg-primary/10;
+  }
+
+  /* Toast */
+  .cosmic-toast-root {
+    @apply [translate:var(--x)_var(--y)] [scale:var(--scale)] [z-index:var(--z-index)];
+    @apply [height:var(--height)] [opacity:var(--opacity)] [will-change:translate,scale];
+    @apply [transition:translate_400ms,_scale_400ms,_opacity_400ms];
+    @apply [transition-timing-function:cubic-bezier(0.21,_1.02,_0.73,_1)];
+    @apply data-[state=closed]:[transition:translate_400ms,_scale_400ms,_opacity_200ms];
+    @apply data-[state=closed]:[transition-timing-function:cubic-bezier(0.06,_0.71,_0.55,_1)];
+  }
+
+  .cosmic-toast-content {
+    @apply relative me-1 px-10 py-6 font-orbitron text-sm;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-primary);
+    --color-frame-2-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-3-stroke: var(--color-accent);
+    --color-frame-3-fill: --alpha(var(--color-accent) / 35%);
+  }
+
+  .cosmic-toast-title {
+    @apply font-bold;
+  }
+
+  .cosmic-toast-description {
+    @apply opacity-80;
+  }
+
+  .cosmic-toast-close {
+    @apply absolute -right-1 top-2 px-5 py-1.5;
+    --color-frame-1-fill: --alpha(var(--color-accent) / 70%);
   }
 }
