@@ -140,3 +140,471 @@ body {
     filter: blur(0px);
   }
 }
+
+/* ===== Cosmic UI Component Classes ===== */
+@layer components {
+  /* Frame Color Schemes */
+  .cosmic-frame-primary {
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 22%);
+    --color-frame-2-stroke: var(--color-primary);
+    --color-frame-2-fill: --alpha(var(--color-primary) / 10%);
+  }
+
+  .cosmic-frame-accent {
+    --color-frame-1-stroke: var(--color-accent);
+    --color-frame-1-fill: --alpha(var(--color-accent) / 40%);
+    --color-frame-2-stroke: var(--color-accent);
+    --color-frame-2-fill: --alpha(var(--color-accent) / 20%);
+  }
+
+  .cosmic-frame-destructive {
+    --color-frame-1-stroke: var(--color-destructive);
+    --color-frame-1-fill: --alpha(var(--color-destructive) / 22%);
+    --color-frame-2-stroke: var(--color-destructive);
+    --color-frame-2-fill: --alpha(var(--color-destructive) / 10%);
+  }
+
+  .cosmic-frame-secondary {
+    --color-frame-1-stroke: var(--color-secondary);
+    --color-frame-1-fill: --alpha(var(--color-secondary) / 15%);
+    --color-frame-2-stroke: var(--color-secondary);
+    --color-frame-2-fill: --alpha(var(--color-secondary) / 10%);
+  }
+
+  .cosmic-frame-success {
+    --color-frame-1-stroke: var(--color-success);
+    --color-frame-1-fill: --alpha(var(--color-success) / 22%);
+    --color-frame-2-stroke: var(--color-success);
+    --color-frame-2-fill: --alpha(var(--color-success) / 10%);
+  }
+
+  .cosmic-frame-flat {
+    --color-frame-2-stroke: transparent;
+    --color-frame-2-fill: transparent;
+  }
+
+  /* Glow Effects */
+  .cosmic-glow-primary {
+    @apply drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-glow-accent {
+    @apply drop-shadow-[0_0px_20px_var(--color-accent)];
+  }
+
+  .cosmic-glow-destructive {
+    @apply drop-shadow-[0_0px_20px_var(--color-destructive)];
+  }
+
+  .cosmic-glow-secondary {
+    @apply drop-shadow-[0_0px_20px_var(--color-secondary)];
+  }
+
+  .cosmic-glow-success {
+    @apply drop-shadow-[0_0px_20px_var(--color-success)];
+  }
+
+  /* Text Shadow Effects */
+  .cosmic-text-glow-primary {
+    @apply text-shadow-lg text-shadow-primary;
+  }
+
+  .cosmic-text-glow-accent {
+    @apply text-shadow-lg text-shadow-accent;
+  }
+
+  .cosmic-text-glow-destructive {
+    @apply text-shadow-lg text-shadow-destructive;
+  }
+
+  .cosmic-text-glow-secondary {
+    @apply text-shadow-lg text-shadow-secondary;
+  }
+
+  .cosmic-text-glow-success {
+    @apply text-shadow-lg text-shadow-success;
+  }
+
+  /* Button Base */
+  .cosmic-button {
+    @apply font-bold mb-2 relative px-8 py-2 cursor-pointer transition-all outline-none;
+    @apply [&>span]:relative [&>span]:flex [&>span]:items-center [&>span]:justify-center;
+  }
+
+  .cosmic-button-hover-primary {
+    @apply [&:hover_svg]:drop-shadow-xl [&:hover_svg]:drop-shadow-primary/50;
+    @apply [&>span]:group-hover:text-shadow-lg [&>span]:group-hover:text-shadow-primary/50;
+  }
+
+  .cosmic-button-hover-accent {
+    @apply [&:hover_svg]:drop-shadow-xl [&:hover_svg]:drop-shadow-accent/50;
+    @apply [&>span]:group-hover:text-shadow-lg [&>span]:group-hover:text-shadow-accent/50;
+  }
+
+  .cosmic-button-hover-destructive {
+    @apply [&:hover_svg]:drop-shadow-xl [&:hover_svg]:drop-shadow-destructive/50;
+    @apply [&>span]:group-hover:text-shadow-lg [&>span]:group-hover:text-shadow-destructive/50;
+  }
+
+  .cosmic-button-hover-secondary {
+    @apply [&:hover_svg]:drop-shadow-xl [&:hover_svg]:drop-shadow-secondary/50;
+    @apply [&>span]:group-hover:text-shadow-lg [&>span]:group-hover:text-shadow-secondary/50;
+  }
+
+  .cosmic-button-hover-success {
+    @apply [&:hover_svg]:drop-shadow-xl [&:hover_svg]:drop-shadow-success/50;
+    @apply [&>span]:group-hover:text-shadow-lg [&>span]:group-hover:text-shadow-success/50;
+  }
+
+  /* Input */
+  .cosmic-input-wrapper {
+    @apply relative;
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+    --color-frame-2-stroke: transparent;
+    --color-frame-2-fill: transparent;
+  }
+
+  .cosmic-input-frame {
+    @apply absolute inset-0 -mb-2 [&>svg]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-input {
+    @apply w-full outline-none px-8 py-2 relative placeholder:text-foreground/70;
+  }
+
+  /* Alert */
+  .cosmic-alert {
+    @apply relative px-10 pt-8 pb-6.5 w-full;
+    @apply data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:duration-200;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-primary);
+    --color-frame-2-fill: transparent;
+    --color-frame-3-stroke: var(--color-accent);
+    --color-frame-3-fill: --alpha(var(--color-accent) / 50%);
+  }
+
+  .cosmic-alert-frame {
+    @apply [&>svg]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-alert-title {
+    @apply flex items-center font-bold w-full relative;
+    @apply text-shadow-lg text-shadow-primary;
+  }
+
+  .cosmic-alert-description {
+    @apply relative pt-2 opacity-80;
+  }
+
+  .cosmic-alert-close {
+    @apply absolute -right-1 top-2 px-5 py-1.5 transform scale-x-[-1];
+    --color-frame-1-fill: --alpha(var(--color-accent) / 70%);
+  }
+
+  /* Checkbox */
+  .cosmic-checkbox {
+    @apply flex gap-3.5 items-center cursor-pointer;
+  }
+
+  .cosmic-checkbox-label {
+    @apply order-2;
+  }
+
+  .cosmic-checkbox-control {
+    @apply relative size-5 flex items-center justify-center;
+    @apply data-[state=checked]:drop-shadow-[0_0px_20px_var(--color-primary)];
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 80%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+  }
+
+  .cosmic-checkbox-indicator {
+    @apply group-data-[state=checked]:opacity-100 opacity-0 size-6 -mt-1 -mr-2;
+    @apply stroke-(--color-primary)/80 drop-shadow-[0_0px_2px_var(--color-primary)];
+    @apply transition-all duration-100;
+  }
+
+  /* Switch */
+  .cosmic-switch {
+    @apply flex items-center gap-4;
+  }
+
+  .cosmic-switch-control {
+    @apply relative w-14 h-6 flex items-center p-1 cursor-pointer;
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+    @apply data-[state=checked]:[--color-frame-1-stroke:var(--color-primary)];
+    @apply data-[state=checked]:[--color-frame-1-fill:--alpha(var(--color-primary)/20%)];
+  }
+
+  .cosmic-switch-frame {
+    @apply absolute inset-0 z-[-1];
+  }
+
+  .cosmic-switch-thumb {
+    @apply relative w-1/2 h-3.5 z-[-1] -mb-px transition-all ms-0.5;
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 80%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    @apply group-data-[state=checked]:[--color-frame-1-stroke:var(--color-primary)];
+    @apply group-data-[state=checked]:[--color-frame-1-fill:--alpha(var(--color-primary)/30%)];
+    @apply group-data-[state=checked]:ms-[47%] group-data-[state=checked]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  /* Tabs */
+  .cosmic-tabs {
+    @apply flex flex-col gap-2;
+  }
+
+  .cosmic-tabs-list {
+    @apply px-6 flex;
+  }
+
+  .cosmic-tabs-trigger {
+    @apply text-nowrap opacity-80 [&>div>svg]:hidden -mr-4;
+    @apply data-[selected]:text-shadow-lg data-[selected]:text-shadow-primary;
+    @apply data-[selected]:opacity-100 data-[selected]:drop-shadow-[0_0px_20px_var(--color-primary)];
+    @apply [&:first-of-type>div>svg:nth-child(1)]:block;
+    @apply [&:not(:first-of-type):not(:last-of-type)>div>svg:nth-child(2)]:block;
+    @apply [&:last-of-type>div>svg:nth-child(3)]:block;
+  }
+
+  .cosmic-tabs-content {
+    @apply relative px-10 pt-5 pb-10 min-h-50 w-full;
+    @apply data-[selected]:animate-in data-[selected]:fade-in-0 data-[selected]:zoom-in-80 data-[selected]:duration-500;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-primary);
+    --color-frame-2-fill: transparent;
+  }
+
+  /* Dialog */
+  .cosmic-dialog-backdrop {
+    @apply fixed inset-0 bg-background/80 z-50;
+    @apply [&[data-state='open']]:animate-in [&[data-state='open']]:fade-in-0;
+    @apply [&[data-state='closed']]:animate-out [&[data-state='closed']]:fade-out-0;
+  }
+
+  .cosmic-dialog-content {
+    @apply outline-none backdrop-blur-sm fixed top-[50%] left-[50%] z-50 w-full max-w-[calc(100%-2rem)];
+    @apply translate-x-[-50%] translate-y-[-50%] sm:max-w-lg pb-14 pt-11 px-14;
+    @apply [&[data-state='open']]:animate-in [&[data-state='open']]:fade-in-0 [&[data-state='open']]:zoom-in-80 [&[data-state='open']]:duration-250;
+    @apply [&[data-state='closed']]:animate-out [&[data-state='closed']]:fade-out-0 [&[data-state='closed']]:zoom-out-80 [&[data-state='closed']]:duration-400;
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 50%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-accent);
+    --color-frame-2-fill: --alpha(var(--color-accent) / 20%);
+    --color-frame-3-stroke: var(--color-accent);
+    --color-frame-3-fill: --alpha(var(--color-accent) / 20%);
+    --color-frame-4-stroke: var(--color-accent);
+    --color-frame-4-fill: --alpha(var(--color-accent) / 20%);
+    --color-frame-5-stroke: --alpha(var(--color-primary) / 23%);
+    --color-frame-5-fill: transparent;
+  }
+
+  .cosmic-dialog-frame {
+    @apply drop-shadow-2xl drop-shadow-primary/50;
+  }
+
+  .cosmic-dialog-title {
+    @apply font-medium font-bold text-lg relative;
+    @apply text-shadow-lg text-shadow-primary;
+  }
+
+  .cosmic-dialog-description {
+    @apply opacity-80 py-2 relative;
+  }
+
+  .cosmic-dialog-close {
+    @apply absolute right-0 top-0 px-5 py-1.5 transform scale-x-[-1];
+    @apply drop-shadow-[0_0px_20px_var(--color-accent)];
+    --color-frame-1-stroke: var(--color-accent);
+    --color-frame-1-fill: --alpha(var(--color-accent) / 50%);
+  }
+
+  /* Accordion */
+  .cosmic-accordion {
+    @apply flex flex-col gap-3;
+  }
+
+  .cosmic-accordion-item {
+    @apply relative px-6 pt-3 pb-5;
+    @apply data-[state=open]:drop-shadow-[0_0px_20px_var(--color-primary)];
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-primary);
+    --color-frame-2-fill: transparent;
+  }
+
+  .cosmic-accordion-trigger {
+    @apply flex items-center font-bold cursor-pointer w-full py-2 -my-2;
+    @apply data-[state=open]:text-shadow-lg data-[state=open]:text-shadow-primary;
+    @apply data-[state=open]:pt-3.5 transition-[padding] duration-100;
+  }
+
+  .cosmic-accordion-content {
+    @apply py-2 mt-1 opacity-80;
+    @apply data-[state=open]:animate-in data-[state=open]:zoom-in-95 data-[state=open]:fade-in-0;
+  }
+
+  /* Textarea */
+  .cosmic-textarea-wrapper {
+    @apply relative;
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+    --color-frame-2-stroke: transparent;
+    --color-frame-2-fill: transparent;
+  }
+
+  .cosmic-textarea-frame {
+    @apply absolute inset-0 -mb-2 [&>svg]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-textarea {
+    @apply outline-none px-8 py-2 relative field-sizing-content min-h-16 w-full placeholder:text-foreground/70;
+  }
+
+  /* Radio Group */
+  .cosmic-radio-group {
+    @apply flex flex-col gap-3;
+  }
+
+  .cosmic-radio-group-label {
+    @apply font-bold;
+  }
+
+  .cosmic-radio-item {
+    @apply flex gap-3.5 items-center cursor-pointer;
+  }
+
+  .cosmic-radio-item-text {
+    @apply order-2;
+  }
+
+  .cosmic-radio-item-control {
+    @apply relative size-5 flex items-center justify-center;
+    @apply data-[state=checked]:drop-shadow-[0_0px_20px_var(--color-primary)];
+    --color-frame-1-stroke: --alpha(var(--color-primary) / 70%);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 10%);
+  }
+
+  .cosmic-radio-item-indicator {
+    @apply relative size-3 transition-all duration-100;
+    @apply data-[state=checked]:opacity-100 opacity-0;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 30%);
+  }
+
+  /* Menu */
+  .cosmic-menu-trigger {
+    @apply data-[state=open]:drop-shadow-[0_0px_20px_var(--color-primary)];
+  }
+
+  .cosmic-menu-content {
+    @apply relative min-w-(--reference-width) px-6 py-7 outline-none mt-1.5;
+    @apply [&[data-state='open']]:animate-in [&[data-state='open']]:zoom-in-80 [&[data-state='open']]:fade-in-0 [&[data-state='open']]:duration-200;
+    @apply [&[data-state='open'][data-placement='bottom-start']]:slide-in-from-top-2;
+    @apply [&[data-state='open'][data-placement='left-start']]:slide-in-from-right-2;
+    @apply [&[data-state='open'][data-placement='right-start']]:slide-in-from-left-2;
+    @apply [&[data-state='open'][data-placement='top-start']]:slide-in-from-bottom-2;
+    @apply [&[data-state='closed']]:animate-out [&[data-state='closed']]:zoom-out-80 [&[data-state='closed']]:fade-out-0 [&[data-state='closed']]:duration-200;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-accent);
+    --color-frame-2-fill: --alpha(var(--color-accent) / 40%);
+    --color-frame-3-stroke: var(--color-accent);
+    --color-frame-3-fill: --alpha(var(--color-accent) / 40%);
+    --color-frame-4-stroke: var(--color-accent);
+    --color-frame-4-fill: --alpha(var(--color-accent) / 40%);
+  }
+
+  .cosmic-menu-content-frame {
+    @apply absolute inset-0 group-data-[placement=top-start]:scale-y-[-1];
+  }
+
+  .cosmic-menu-content-inner {
+    @apply relative flex flex-col gap-2.5;
+  }
+
+  .cosmic-menu-item {
+    @apply cursor-pointer flex items-center -mx-3 -my-0.5 px-3 py-0.5;
+    @apply border border-transparent;
+    @apply hover:border-primary/30 hover:bg-primary/10;
+    @apply data-[highlighted]:border-primary/30 data-[highlighted]:bg-primary/10;
+  }
+
+  /* Combobox */
+  .cosmic-combobox-control {
+    @apply relative;
+  }
+
+  .cosmic-combobox-trigger {
+    @apply w-full min-w-55 px-0 [&>span]:justify-start px-8;
+  }
+
+  .cosmic-combobox-input-wrapper {
+    @apply relative;
+  }
+
+  .cosmic-combobox-input {
+    @apply w-full outline-none px-8 py-2 relative placeholder:text-foreground/70;
+  }
+
+  .cosmic-combobox-content {
+    @apply relative min-w-(--reference-width) px-4 py-3 outline-none mt-1.5 max-h-80 overflow-y-auto;
+    @apply [&[data-state='open']]:animate-in [&[data-state='open']]:zoom-in-80 [&[data-state='open']]:fade-in-0 [&[data-state='open']]:duration-200;
+    @apply [&[data-state='open'][data-placement='bottom-start']]:slide-in-from-top-2;
+    @apply [&[data-state='closed']]:animate-out [&[data-state='closed']]:zoom-out-80 [&[data-state='closed']]:fade-out-0 [&[data-state='closed']]:duration-200;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+  }
+
+  .cosmic-combobox-content-frame {
+    @apply absolute inset-0;
+  }
+
+  .cosmic-combobox-content-inner {
+    @apply relative flex flex-col gap-2;
+  }
+
+  .cosmic-combobox-item {
+    @apply cursor-pointer flex items-center justify-between px-4 py-1.5;
+    @apply border border-transparent;
+    @apply hover:border-primary/30 hover:bg-primary/10;
+    @apply data-[highlighted]:border-primary/30 data-[highlighted]:bg-primary/10;
+  }
+
+  /* Toast */
+  .cosmic-toast-root {
+    @apply [translate:var(--x)_var(--y)] [scale:var(--scale)] [z-index:var(--z-index)];
+    @apply [height:var(--height)] [opacity:var(--opacity)] [will-change:translate,scale];
+    @apply [transition:translate_400ms,_scale_400ms,_opacity_400ms];
+    @apply [transition-timing-function:cubic-bezier(0.21,_1.02,_0.73,_1)];
+    @apply data-[state=closed]:[transition:translate_400ms,_scale_400ms,_opacity_200ms];
+    @apply data-[state=closed]:[transition-timing-function:cubic-bezier(0.06,_0.71,_0.55,_1)];
+  }
+
+  .cosmic-toast-content {
+    @apply relative me-1 px-10 py-6 font-orbitron text-sm;
+    --color-frame-1-stroke: var(--color-primary);
+    --color-frame-1-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-2-stroke: var(--color-primary);
+    --color-frame-2-fill: --alpha(var(--color-primary) / 20%);
+    --color-frame-3-stroke: var(--color-accent);
+    --color-frame-3-fill: --alpha(var(--color-accent) / 35%);
+  }
+
+  .cosmic-toast-title {
+    @apply font-bold;
+  }
+
+  .cosmic-toast-description {
+    @apply opacity-80;
+  }
+
+  .cosmic-toast-close {
+    @apply absolute -right-1 top-2 px-5 py-1.5;
+    --color-frame-1-fill: --alpha(var(--color-accent) / 70%);
+  }
+}

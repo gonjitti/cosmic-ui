@@ -26,17 +26,7 @@ function AlertRoot({
     >
       <Presence
         present={present}
-        className={twMerge([
-          "relative px-10 pt-8 pb-6.5 w-full [&>svg]:drop-shadow-[0_0px_20px_var(--color-primary)]",
-          "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:duration-200",
-          "[--color-frame-1-stroke:var(--color-primary)]",
-          "[--color-frame-1-fill:var(--color-primary)]/20",
-          "[--color-frame-2-stroke:var(--color-primary)]",
-          "[--color-frame-2-fill:transparent]",
-          "[--color-frame-3-stroke:var(--color-accent)]",
-          "[--color-frame-3-fill:var(--color-accent)]/50",
-          className,
-        ])}
+        className={twMerge(["cosmic-alert cosmic-alert-frame", className])}
         {...rest}
       >
         <Frame
@@ -56,13 +46,7 @@ function AlertTitle({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
-      className={twMerge([
-        "flex items-center text-shadow-lg text-shadow-primary font-bold w-full relative",
-        className,
-      ])}
-      {...props}
-    >
+    <div className={twMerge(["cosmic-alert-title", className])} {...props}>
       {children}
     </div>
   );
@@ -74,10 +58,7 @@ function AlertDescription({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
-      className={twMerge(["relative pt-2 opacity-80", className])}
-      {...props}
-    >
+    <div className={twMerge(["cosmic-alert-description", className])} {...props}>
       {children}
     </div>
   );
@@ -93,10 +74,7 @@ function AlertCloseTrigger({
     <Button
       shape="flat"
       variant="accent"
-      className={twMerge([
-        "absolute -right-1 top-2 px-5 py-1.5 transform scale-x-[-1]",
-        "[--color-frame-1-fill:var(--color-accent)]/70",
-      ])}
+      className={twMerge(["cosmic-alert-close", className])}
       {...props}
       onClick={() => context?.setPresent(false)}
     >
