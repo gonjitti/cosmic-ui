@@ -22,7 +22,6 @@ function App() {
         className={twMerge([
           "min-h-screen",
           "before:fixed before:inset-0 before:bg-noise before:z-[-1]",
-          "after:bg-temper after:opacity-15 after:bg-contain after:fixed after:inset-0 after:blur-xl after:z-[-1]",
         ])}
       >
         <div className="before:fixed before:inset-x-0 before:top-0 before:h-80 before:bg-gradient-to-b before:from-black/50 before:to-transparent before:z-[-1]">
